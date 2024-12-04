@@ -92,7 +92,7 @@ def fetch_images_and_title(thread_url):
                 images.append((img, img_url))
         return title, images
     except Exception as e:
-        return f"<p>エラーが発生しました: {e}</p>", []
+        return f"エラーが発生しました: {e}", []
 
 @app.route("/", methods=["GET", "POST"])
 def index():
@@ -108,6 +108,5 @@ def index():
     return render_template_string(HTML_TEMPLATE, thread_url=thread_url, thread_title=thread_title, images=images)
 
 if __name__ == "__main__":
-#    port = int(os.environ.get("PORT", 5000))  # 環境変数 PORT を取得
-#   app.run(host="0.0.0.0", port=port)
-    pass
+    port = int(os.environ.get("PORT", 5000))  # 環境変数 PORT を取得
+    app.run(host="0.0.0.0", port=port)

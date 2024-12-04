@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>画像スクレイピングサービス</title>
+    <style>
+        body { font-family: Arial, sans-serif; margin: 20px; }
+        .image-container img { width: 200px; margin: 10px; }
+    </style>
+</head>
+<body>
+    <h1>スレッドの画像を取得して表示</h1>
+    <form method="POST">
+        <label for="url">スレッドのURLを入力してください:</label>
+        <input type="text" id="url" name="url" required>
+        <button type="submit">送信</button>
+    </form>
+    
+    {% if images %}
+        <h2>取得した画像</h2>
+        <div class="image-container">
+            {% for image in images %}
+                <img src="/static/images/{{ image }}" alt="Image">
+            {% endfor %}
+        </div>
+    {% endif %}
+</body>
+</html>

@@ -1,3 +1,4 @@
+import os
 from flask import Flask, request, render_template_string
 import requests
 from bs4 import BeautifulSoup
@@ -108,3 +109,5 @@ def index():
 
 if __name__ == "__main__":
     app.run(debug=True)
+    port = int(os.environ.get("PORT", 5000))  # 環境変数 PORT を取得
+    app.run(host="0.0.0.0", port=port)
